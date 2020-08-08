@@ -1,8 +1,8 @@
 # Import ISO files to Content Library from Datastore
 
-Currently, the supported ways that can be imported into the Content Library are only Local Files or HTTP. There is no feature to import files directly from the datastore.
+Currently, the supported ways to import files into the Content Library are only Local Files or HTTP. There is no feature to import files directly from the datastore.
 
-This repository contains some helpful information to solve this problem.
+This repository contains some helpful information to import ISO files to Content Library almost directly from the datastore.
 
 
 ## Environment
@@ -56,6 +56,8 @@ Completing the Session ...
 Deleting the Session ...
 ```
 
+I used [this example scripts](https://github.com/vmware/PowerCLI-Example-Scripts/blob/master/Modules/ContentLibrary/ContentLibrary.psm1) as a reference for the look and feel of my script. Thank you.
+
 
 ## Achieve in manually
 
@@ -89,8 +91,8 @@ Even as the file imported, the source files remain on the datastore. We can dele
 
 ## Alternative way (I tried but not works...)
 
-Referring to the [API reference](https://developer.vmware.com/docs/vsphere-automation/latest/content/data-structures/Library/Item/TransferEndpoint/), there is a way to specify the URI on the datastore directory by using `ds://` scheme, 
+Referring to the [API reference](https://developer.vmware.com/docs/vsphere-automation/latest/content/data-structures/Library/Item/TransferEndpoint/), it seems there is a way to specify the URI on the datastore directory by using `ds://` scheme.
 
-However, in my environment, this doesn't work. Once the file transferred from datastore, its size displayed as 4 KB and cannot be fixed.
+However, in my environment, this doesn't work. Once the file transferred from datastore, its size was displayed as 4 KB and cannot be fixed.
 
 For this reason, I had to implement the way I described above, although it is not secure.
