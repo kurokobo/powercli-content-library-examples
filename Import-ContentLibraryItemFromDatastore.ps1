@@ -36,6 +36,7 @@ Function Import-ContentLibraryItemFromDatastore {
         $createItemSpec = $contentLibraryItemService.Help.create.create_spec.Create()
         $createItemSpec.library_id = $destinationLibraryId
         $createItemSpec.name = [System.IO.Path]::GetFileNameWithoutExtension($datastoreItem.Name)
+        $createItemSpec.type = "iso"
         $createItemSpec.size = $datastoreItem.Length
 
         try {
