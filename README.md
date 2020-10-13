@@ -1,5 +1,24 @@
 # Import ISO files to Content Library from Datastore
 
+**UPDATE**: Starting in PowerCLI 12.1, upload from the Datastore to the Content Library is now officially supported.
+
+`New-ContentLibraryItem` now has an `-Uri` parameter, which can be easily uploaded by specifying a path with the `ds://` schema.
+
+```powershell
+PS> New-ContentLibraryItem -ContentLibrary "ISO Images" -Name Sample_ISO_File.iso -FileName Sample_ISO_File.iso -Uri ((Get-Datastore sandbox-ds01).ExtensionData.Info.Url + "ISO/Sample_ISO_File.iso")
+
+Name                       ContentLibrary
+----                       --------------
+Sample_ISO_File.iso        ISO Images
+```
+
+It is recommended that update your PowerCLI to use officially supported methods rather than the scripts in this repository.
+
+The following only applies to prior to PowerCLI 12.1.
+
+----
+# DEPRECATED: Import ISO files to Content Library from Datastore
+
 Currently, the supported ways to import files into the Content Library are only Local Files or HTTP. There is no feature to import files directly from the datastore.
 
 This repository contains some helpful information to import ISO files to Content Library almost directly from the datastore.
